@@ -1,0 +1,15 @@
+<!--Nav Bar-->
+<app-nav></app-nav>
+
+<!--Connection Bar-->
+<section>
+  <p>{{connectionStatus}}</p>
+  <button (click)= "toggle()">{{connectionButton}}</button>
+</section>
+
+<!--Selected Nav Element-->
+<section>
+  <router-outlet></router-outlet>
+</section>
+
+

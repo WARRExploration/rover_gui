@@ -1,0 +1,11 @@
+<h1>Rover Steering</h1>
+
+<button (click)="toggleSend()">{{sendButton}}</button>
+
+<div>
+    <p>Forward Torque</p>  
+    <mat-slider vertical [(ngModel)]="forwardValue" min="-5" max="5" step="0.1" value="0" thumbLabel tickInterval="0.1" (mouseup)="updateMsg(value)"></mat-slider>
+
+    <p>Rotational Torque</p>
+    <mat-slider [(ngModel)]="rotationalValue" min="-5" max="5" step="0.1" value="0" thumbLabel tickInterval="0.1" (mouseup)="updateMsg(value)"></mat-slider>
+</div>
