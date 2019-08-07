@@ -40,7 +40,7 @@ export class TelemetryComponent implements OnInit {
   constructor(private connection: ConnectionService) {
     //Initialize correct topic
     jointStates = new ROSLIB.Topic({
-      ros: this.connection.ros,
+      ros: this.connection.roverOS,
       name: '/joint_states',
       messageType: 'sensor_msgs/JointState'
     });
@@ -65,8 +65,10 @@ export class TelemetryComponent implements OnInit {
           removeData(rockerPositionChart);
           
         }
+        
       }
         intervalCounter = (intervalCounter +1)%10;
+        
       
       });
       this.subscribeJointButton = "Unsubscribe";

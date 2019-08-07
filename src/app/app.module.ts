@@ -17,6 +17,7 @@ import { SteeringComponent } from './steering/steering.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { CompositeViewComponent } from './composite-view/composite-view.component';
+import { ConnectionComponent } from './connection/connection.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CompositeViewComponent } from './composite-view/composite-view.componen
     SteeringComponent,
     NavComponent,
     CompositeViewComponent,
+    ConnectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { CompositeViewComponent } from './composite-view/composite-view.componen
     FormsModule,
     MatToolbarModule,
     ChartsModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule
 
   ],
   providers: [],

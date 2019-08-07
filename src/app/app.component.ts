@@ -12,29 +12,11 @@ import { throwToolbarMixedModesError } from '@angular/material';
 
 export class AppComponent {
   title = 'roverGui';
-  connectionStatus: string; 
-  connectionButton: string; 
 
-  constructor(private connection: ConnectionService){
-  this.updateView();
+  constructor(){
+  
   }
 
-  updateView(){
-    if(this.connection.isConnected()){
-      this.connectionStatus = "Connected";
-      this.connectionButton = "Disconnect";
-    }else{
-      this.connectionStatus = "Not connected";
-      this.connectionButton = "Reconnect";
-    }
-  }
-
-  toggle() {
-    //Forward to service
-    this.connection.toggle();
-    //Update text
-    this.updateView();  
-  }
 
  
 

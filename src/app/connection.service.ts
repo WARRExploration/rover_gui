@@ -1,61 +1,66 @@
 import { Injectable } from '@angular/core';
 import * as ROSLIB from 'roslib';
+import { BehaviorSubject} from 'rxjs';
 
-const rosBridgeUrl = 'ws://localhost:9090';
-
-var ros = new ROSLIB.Ros({
-  url: rosBridgeUrl
-});
-
-
-var connected = true;
-
-
-ros.on('connection', function () {
-  connected = true;
-  console.log('Connected to websocket server.');
-  
-});
-
-ros.on('error', function (error) {
-  connected = false;
-  console.log('Error connecting to websocket server: ', error);
-  
-});
-
-ros.on('close', function () {
-  connected = false;
-  console.log('Connection to websocket server closed.');
-  
-});
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
-  ros: ROSLIB.Ros;
+
+  /* iP : String;
+  rosBridgeUrl : String;
+  roverOS : ROSLIB.Ros; */
+  /*  iP = '10.151.12.59'; */
+
+  rosbridgeURL: string;
+  /* connected: boolean; */
+  roverOS: ROSLIB.Ros;
+
+  connectionStatus = new BehaviorSubject<boolean>(false);
+  currentConnectionStatus = this.connectionStatus.asObservable();
+
 
   constructor() {
-    //Import as Attribute so other modules can access it
-    this.ros = ros;
-   }
+    //Initialize Attributes
+    this.rosbridgeURL = 'ws://localhost:9090';
 
-   isConnected(){
-     return connected;
-    
-   }
-
-
-  toggle() {
-    if (connected) {
-      ros.close();
-      console.log("disconnecting");
-    } else {
-      ros.connect(rosBridgeUrl);
-      console.log("retrying");
-    }
-    
+    this.roverOS = new ROSLIB.Ros({
+      url: this.rosbridgeURL
+    });
+    //Setup new roverOS
+    this.initializeRoverOS();
   }
 
-  
+  //Configure Event Responses
+  initializeRoverOS() {
+    var service = this;
+    this.roverOS.on('connection', function () {
+
+      service.connectionStatus.next(true);
+      console.log('Connected to websocket server.');
+
+    });
+    this.roverOS.on('error', function (error) {
+
+      service.connectionStatus.next(false);
+      console.log('Error connecting to websocket server: ', error);
+    });
+    this.roverOS.on('close', function () {
+
+      service.connectionStatus.next(false);
+      console.log('Connection to websocket server closed.');
+    });
+  }
+
+  connect(ip:string){
+    this.roverOS.close();
+    this.rosbridgeURL = 'ws://'+ip+':9090';
+    this.roverOS.connect(this.rosbridgeURL);
+  }
+
+  disconnect(){
+    this.roverOS.close();
+  }
+
 }

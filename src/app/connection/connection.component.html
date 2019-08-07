@@ -1,0 +1,10 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<section>
+    <p>{{connectionStatus}}</p>
+    <input matInput placeholder="IP" [(ngModel)]="inputIP">
+    <button (click)= "connect()">Connect</button>
+    <button (click)= "disconnect()"><i class="material-icons">clear</i></button>
+    
+  </section>
