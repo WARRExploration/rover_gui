@@ -9,7 +9,8 @@ import { ConnectionService } from '../connection.service';
 export class ConnectionComponent implements OnInit {
 
   inputIP : string = "localhost";
-  connectionStatus: string;
+  connectionStatus: string= "not connected";
+
   
 
   constructor(private cs: ConnectionService){
@@ -26,9 +27,9 @@ export class ConnectionComponent implements OnInit {
 
   ngOnInit() {
     this.cs.currentConnectionStatus.subscribe(connected => {if(connected){
-      this.connectionStatus = "Connected";
+      this.connectionStatus = "connected";
     }else{
-      this.connectionStatus = "Not connected";
+      this.connectionStatus = "not connected";
     }})
   }
 

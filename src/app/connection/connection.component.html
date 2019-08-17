@@ -1,15 +1,16 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="backdrop">
-  
 
-<div class="status">
-  <div id="text">Status:</div>
-  <div id="state">{{connectionStatus}}</div>
-</div>
-<div class="connect">
-  <input id="ip" matInput placeholder="IP" [(ngModel)]="inputIP">
-  <button id="conn" (click)="connect()">Connect</button>
-  <button id="disc" (click)="disconnect()">X</button>
-</div>
+  <div class="status">
+    <div id="text">Status:</div>
+    <div id="state" [style.color]="connectionStatus === 'Connected' ? 'green' : 'red'">{{connectionStatus}}
+    </div>
+  </div>
+  <div class="connect">
+    <input id="ip" matInput placeholder="IP..." [(ngModel)]="inputIP">
+    <button id="conn" (click)="connect()">Connect</button>
+    <button id="disc" (click)="disconnect()">X</button>
+  </div>
+
 </div>

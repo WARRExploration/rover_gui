@@ -18,6 +18,7 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { CompositeViewComponent } from './composite-view/composite-view.component';
 import { ConnectionComponent } from './connection/connection.component';
+import { FallbackComponent } from './fallback/fallback.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ConnectionComponent } from './connection/connection.component';
     NavComponent,
     CompositeViewComponent,
     ConnectionComponent,
+    FallbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { ConnectionComponent } from './connection/connection.component';
     MatToolbarModule,
     ChartsModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
 
   ],
   providers: [],
