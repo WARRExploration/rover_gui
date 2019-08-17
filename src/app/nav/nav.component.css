@@ -1,3 +1,50 @@
-.header-filler{
-    flex: 1 1 auto;
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: navy;
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    float: right;
+    border-left: 1px solid blue;
+}
+
+li:first-child {
+    border-right: 1px solid blue;
+    border-left: none;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 150%;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+
+li a:hover {
+    /* background: -moz-linear-gradient(bottom, white 0%, navy 80%);
+background: -webkit-linear-gradient(bottom, white 0%, navy 80%); */
+    background: linear-gradient(to top, blue 0%, navy 50%);
+}
+
+.active {
+    background-color: blue;
 }

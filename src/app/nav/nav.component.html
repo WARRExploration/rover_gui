@@ -1,15 +1,15 @@
-<header>
-    <mat-toolbar>
-      <span>
-          <a routerLink="/" class="logo">{{appTitle}}</a>
-      </span>
-<span class = "header-filler"></span>
-      <span>
-      <a routerLink="/steering">Steering</a>
-      </span>
-      <span>
-      <a routerLink="/video-feed">Video-Feed</a>
-    </span><span>
-      <a routerLink="/telemetry">Telemetry</a>
-    </span></mat-toolbar>
-  </header>
+<head>
+</head>
+
+<body>
+    <ul>
+        <li style="float:left"><a routerLink="/" class="logo">{{appTitle}}</a></li>
+
+
+        <li><a routerLink="/telemetry" routerLinkActive="active">Telemetry</a></li>
+
+        <li><a routerLink="/video-feed" routerLinkActive="active">Video-Feed</a></li>
+
+        <li><a routerLink="/steering" routerLinkActive="active">Steering</a></li>
+    </ul>
+</body>

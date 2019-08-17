@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+  }
+
+.status{
+    width: 50%;
+    float: left;
+    background-color: gray;
+    display: flex;
+}
+
+.connect{
+    width: 50%;
+    float: left;
+    background-color: gray;
+}
+
+#state{
+    background-color: green;
+}
+
+#conn{
+    background-color: greenyellow;
+    color: darkgreen;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 20px;
+}
+#disc{
+    background-color: red;
+    color: darkred;    
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 20px;
+    
+
+}
+
