@@ -1,10 +1,14 @@
-<h1>Telemetry</h1>
-<span><a>Joint Telemetry </a><button (click)="toggleJointSubscribe()">{{subscribeJointButton}}</button></span>
-<div style="width: 40%">
-        <canvas id="velocityCanvas"></canvas>
+<div class="wrapper">
+        <div id="text">
+                joint telemetry
+                <button class="toggle" (click)="toggleJointSubscribe()"
+                [style.background-color]="subscribeJointButton === 'Subscribe' ? 'limegreen' : 'red'">{{subscribeJointButton}}</button>
+        </div>
+        
+        <div class="table" id="speed">
+                <canvas id="velocityCanvas"></canvas>
+        </div>
+        <div class="table" id="rockers">
+                <canvas id="rockerPositionCanvas"></canvas>
+        </div>
 </div>
-<div style="width: 40%">
-        <canvas id="rockerPositionCanvas"></canvas>
-</div>
-
-

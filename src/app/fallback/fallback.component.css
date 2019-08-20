@@ -1,0 +1,10 @@
+.grid{
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.section{
+    margin: 30px;
+    width: 33%;
+}

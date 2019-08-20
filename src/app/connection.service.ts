@@ -13,6 +13,7 @@ export class ConnectionService {
   roverOS : ROSLIB.Ros; */
   /*  iP = '10.151.12.59'; */
 
+  ip : string;
   rosbridgeURL: string;
   /* connected: boolean; */
   roverOS: ROSLIB.Ros;
@@ -23,7 +24,8 @@ export class ConnectionService {
 
   constructor() {
     //Initialize Attributes
-    this.rosbridgeURL = 'ws://localhost:9090';
+    this.ip = "lelele";
+    this.rosbridgeURL = "ws://"+this.ip +":9090";
 
     this.roverOS = new ROSLIB.Ros({
       url: this.rosbridgeURL
@@ -55,7 +57,8 @@ export class ConnectionService {
 
   connect(ip:string){
     this.roverOS.close();
-    this.rosbridgeURL = 'ws://'+ip+':9090';
+    this.ip = ip;
+    this.rosbridgeURL = 'ws://'+this.ip+':9090';
     this.roverOS.connect(this.rosbridgeURL);
   }
 

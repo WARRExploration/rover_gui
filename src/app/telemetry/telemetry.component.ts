@@ -27,6 +27,16 @@ function removeData(chart) {
 
 var velocityChart;
 var rockerPositionChart;
+var options:{
+  scales: {
+      yAxes : [{
+          ticks : {
+              max : 5,    
+              min : -5
+          }
+      }]
+  }
+}
 
 @Component({
   selector: 'app-telemetry',
@@ -88,8 +98,8 @@ export class TelemetryComponent implements OnInit {
             {
               label: 'Wheel-Speed',
               data: [],
-              backgroundColor: 'blue',
-              borderColor: 'blue',
+              backgroundColor: 'green',
+              borderColor: 'green',
               fill: false,
             }
           ]
@@ -103,15 +113,15 @@ export class TelemetryComponent implements OnInit {
             {
               label: 'Left Rocker',
               data: [],
-              backgroundColor: 'red',
-              borderColor: 'red',
+              backgroundColor: 'navy',
+              borderColor: 'navy',
               fill: false,
             },
             {
               label: 'Right Rocker',
               data: [],
-              backgroundColor: 'green',
-              borderColor: 'green',
+              backgroundColor: 'grey',
+              borderColor: 'grey',
               fill: false,
             }
           ]

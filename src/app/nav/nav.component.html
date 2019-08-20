@@ -3,8 +3,14 @@
 
 <body>
 
+
+
     <ul>
-        <li style="float:left"><a routerLink="/fallback" class="logo">{{appTitle}}</a></li>
+        <li id="logoelem" style="float:left">
+            <a id="link" routerLink="/fallback" class="logo"><img id="logo"
+                    src="https://exploration.warr.de/assets/logo.svg">
+                {{appTitle}}
+            </a></li>
 
 
         <li><a routerLink="/telemetry" routerLinkActive="active">Telemetry</a></li>

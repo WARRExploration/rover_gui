@@ -29,7 +29,7 @@ export class ConnectionComponent implements OnInit {
     this.cs.currentConnectionStatus.subscribe(connected => {if(connected){
       this.connectionStatus = "connected";
     }else{
-      this.connectionStatus = "not connected";
+      this.connectionStatus = "disconnected";
     }})
   }
 

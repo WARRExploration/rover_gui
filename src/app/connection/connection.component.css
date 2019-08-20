@@ -10,8 +10,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: grey;
     padding: 5px;
+    background-color: grey;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, grey 25%);
     
 }
 
@@ -39,7 +40,9 @@
     font-weight: bold;  
     font-variant: small-caps;
     background-color: lightgrey;
-    border-radius: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 3px;
 }
 
 #ip{
@@ -56,6 +59,8 @@
     border-radius: 5px;
     display: inline-block;
     margin-right: 5px;
+    border: 1px solid black;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
 
 }
 #disc{
@@ -64,6 +69,8 @@
     border: none;
     border-radius: 5px;
     display: inline-block;
+    border: 1px solid black;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
 
     
 
