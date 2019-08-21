@@ -16,14 +16,49 @@ var twist = new ROSLIB.Message({
   }
 });
 
+function updateMsg(forw, rot) {
+  twist = new ROSLIB.Message({
+    linear: {
+      x: forw,
+      y: 0.0,
+      z: 0.0
+    },
+    angular: {
+      x: 0.0,
+      y: 0.0,
+      z: rot
+    }
+  });
+}
+
+
 //Placeholder topic, depends on connection service (has to be global for send loop)
 var cmdVel;
+
+var gp;
+
+var gpForw = 0;
+var gpRot  = 0;
+
+
+window.addEventListener("gamepadconnected", (event) => {
+  console.log("A gamepad connected:");
+  // console.log(event.gamepad);
+  gp = navigator.getGamepads()[0];
+});
+
+window.addEventListener("gamepaddisconnected", (event) => {
+  console.log("A gamepad disconnected:");
+  // console.log(event.gamepad);
+  gp = null;
+});
 
 @Component({
   selector: 'app-steering',
   templateUrl: './steering.component.html',
   styleUrls: ['./steering.component.css']
 })
+
 
 
 
@@ -52,56 +87,49 @@ export class SteeringComponent implements OnInit {
 
   }
 
-  updateMsg() {
-    twist = new ROSLIB.Message({
-      linear: {
-        x: this.forwardValue,
-        y: 0.0,
-        z: 0.0
-      },
-      angular: {
-        x: 0.0,
-        y: 0.0,
-        z: this.rotationalValue
-      }
-    });
-  }
+
 
 
 
   
   //Loop of send button
   toggleSend() {
+    var self = this;
     if (this.isPublishing) {
       clearInterval(this.publishLoop);
       this.sendButtonText = "Start sending";
     } else {
-      this.publishLoop = setInterval(this.publishMsg, 1000);
+      self.publishLoop = setInterval(function() {
+        if(gp != null){
+          gp = navigator.getGamepads()[0];
+          gpForw = gp.axes[3] * -5;
+          gpRot = gp.axes[2] *-5;
+          updateMsg(gpForw, gpRot);
+          self.forwardValue = Math.round(gpForw*100)/100;
+          self.rotationalValue = Math.round(gpRot*100)/100;
+        }
+        cmdVel.publish(twist);
+      }, 100);
       this.sendButtonText = "Stop sending";
     }
     this.isPublishing = !this.isPublishing;
   }
 
-    //Inner function, never used directly
-    publishMsg() {
-      cmdVel.publish(twist);
-    }
-
   //Reset Button-Handlers
   resetForw() {
     this.forwardValue = 0.0;
-    this.updateMsg();
+    updateMsg(0, this.rotationalValue);
   }
 
   resetRot() {
     this.rotationalValue = 0.0;
-    this.updateMsg();
+    updateMsg(this.forwardValue, 0);
   }
 
   reset() {
     this.forwardValue = 0.0;
     this.rotationalValue = 0.0;
-    this.updateMsg();
+    updateMsg(0,0);
   }
 
   ngOnInit() {
