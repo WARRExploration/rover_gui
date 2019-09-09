@@ -16,9 +16,9 @@ import { VideoFeedComponent } from './video-feed/video-feed.component';
 import { SteeringComponent } from './steering/steering.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { CompositeViewComponent } from './composite-view/composite-view.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { FallbackComponent } from './fallback/fallback.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { FallbackComponent } from './fallback/fallback.component';
     VideoFeedComponent,
     SteeringComponent,
     NavComponent,
-    CompositeViewComponent,
     ConnectionComponent,
     FallbackComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
