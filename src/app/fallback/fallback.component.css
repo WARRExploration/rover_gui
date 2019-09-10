@@ -1,10 +1,20 @@
 .grid{
     display:flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    
 }
 
 .section{
     margin: 30px;
     width: 33%;
+}
+
+.row{
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#lastrow{
+    margin-bottom: 800px;
 }

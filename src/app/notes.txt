@@ -1,0 +1,16 @@
+header: 
+  seq: 3
+  stamp: 
+    secs: 118
+    nsecs: 141000000
+  frame_id: "base_link"
+pose: 
+  position: 
+    x: -2.09469032288
+    y: -3.0789899826
+    z: 0.0
+  orientation: 
+    x: 0.0
+    y: 0.0
+    z: 0.226051204611
+    w: 0.974115420725
