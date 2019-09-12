@@ -91,7 +91,7 @@ export class SteeringComponent implements OnInit {
 
 
 
-  
+
   //Loop of send button
   toggleSend() {
     var self = this;
@@ -107,6 +107,8 @@ export class SteeringComponent implements OnInit {
           updateMsg(gpForw, gpRot);
           self.forwardValue = Math.round(gpForw*100)/100;
           self.rotationalValue = Math.round(gpRot*100)/100;
+        } else {
+          updateMsg(self.forwardValue, self.rotationalValue)
         }
         cmdVel.publish(twist);
       }, 100);

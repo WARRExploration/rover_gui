@@ -79,7 +79,7 @@ export class MapComponent implements OnInit {
     goalTopic = new ROSLIB.Topic({
       ros: this.connection.roverOS,
       name: '/move_base_simple/goal',
-      messageType: 'geometry_msgs/PoseStamped.msg'
+      messageType: 'geometry_msgs/PoseStamped'
     });
     seq = 0;
 
